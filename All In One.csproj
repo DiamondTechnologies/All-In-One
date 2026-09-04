@@ -76,6 +76,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include=".github\workflows\build.yml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="All_In_One.ContextMenu\All_In_One.ContextMenu.vcxproj" />
 	</ItemGroup>
 </Project>
