@@ -30,10 +30,21 @@ jobs:
           /p:Configuration=Release
           /p:Platform=x64
 
-      - name: Build
+      - name: Build and Package MSIX
         run: >
-            msbuild "All In One.csproj"
-            /p:Configuration=Release
-            /p:Platform=x64
-            /p:AppxPackageSigningEnabled=false
-            /p:SelfContained=true
+          msbuild "All In One.csproj"
+          /t:Publish
+          /p:Configuration=Release
+          /p:Platform=x64
+          /p:AppxPackageDir="$(Build.ArtifactStagingDirectory)\AppxPackages\"
+          /p:AppxBundle=Never
+          /p:AppxPackageSigningEnabled=false
+          /p:SelfContained=true
+      - name: Upload Unsigned MSIX Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-msix-x64
+          path: |
+            bin/x64/Release/**/AppPackages/**/*.msix
+            bin/x64/Release/**/publish/**/*.msix
+          if-no-files-found: error
