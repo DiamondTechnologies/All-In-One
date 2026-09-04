@@ -36,7 +36,7 @@ jobs:
           /t:Publish
           /p:Configuration=Release
           /p:Platform=x64
-          /p:AppxPackageDir="$(Build.ArtifactStagingDirectory)\AppxPackages\"
+          /p:AppxPackageDir="${{ runner.temp }}\AppxPackages\"
           /p:AppxBundle=Never
           /p:AppxPackageSigningEnabled=false
           /p:SelfContained=true
