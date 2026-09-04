@@ -20,8 +20,14 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
       - name: Restore
-        run: dotnet restore
+        run: msbuild "All In One.csproj" /t:Restore /p:Configuration=Release
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: >
+          msbuild "All In One.csproj"
+          /p:Configuration=Release
+          /p:AppxPackageSigningEnabled=false
