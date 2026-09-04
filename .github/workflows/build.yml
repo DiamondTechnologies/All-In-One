@@ -32,7 +32,8 @@ jobs:
 
       - name: Build
         run: >
-          msbuild "All In One.csproj"
-          /p:Configuration=Release
-          /p:Platform=x64
-          /p:AppxPackageSigningEnabled=false
+            msbuild "All In One.csproj"
+            /p:Configuration=Release
+            /p:Platform=x64
+            /p:AppxPackageSigningEnabled=false
+            /p:SelfContained=true
