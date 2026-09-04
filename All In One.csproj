@@ -80,6 +80,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="All_In_One.ContextMenu\All_In_One.ContextMenu.vcxproj" />
+		<ProjectReference Include="All_In_One.ContextMenu\All_In_One.ContextMenu.vcxproj">
+			<SetConfiguration>true</SetConfiguration>
+			<SetPlatform>true</SetPlatform>
+		</ProjectReference>
 	</ItemGroup>
 </Project>
