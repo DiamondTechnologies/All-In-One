@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "All In One (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "All In One (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

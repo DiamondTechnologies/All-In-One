@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="All In One.csproj">
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+    <Platform Solution="Release|Any CPU" Project="x64" />
+    <Deploy />
+  </Project>
+  <Project Path="All_In_One.ContextMenu/All_In_One.ContextMenu.vcxproj" Id="1417e321-b9bd-4cea-8512-0f56a9cfcc0d">
+    <Platform Solution="*|ARM64" Project="x64" />
+  </Project>
+</Solution>
