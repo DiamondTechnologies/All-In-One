@@ -7,6 +7,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: windows-latest
@@ -37,7 +40,7 @@ jobs:
             /p:Configuration=Release `
             /p:Platform=x64 `
             /p:EnableWindowsTargeting=true
-      
+
       - name: Build and Package MSIX
         shell: pwsh
         run: |
@@ -52,6 +55,7 @@ jobs:
             /p:EnableWindowsTargeting=true
 
       - name: Find MSIX files
+        shell: pwsh
         run: Get-ChildItem -Path . -Filter *.msix -Recurse
 
       - name: Upload Unsigned MSIX Artifact
