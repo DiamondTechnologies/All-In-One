@@ -15,6 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Show environment
+        shell: pwsh
+        run: |
+          Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion
+          dotnet --info
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
@@ -24,22 +30,26 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Restore
-        run: >
-          msbuild "All In One.csproj"
-          /t:Restore
-          /p:Configuration=Release
-          /p:Platform=x64
-
+        shell: pwsh
+        run: |
+          msbuild "All In One.csproj" `
+            /t:Restore `
+            /p:Configuration=Release `
+            /p:Platform=x64 `
+            /p:EnableWindowsTargeting=true
+      
       - name: Build and Package MSIX
-        run: >
-          msbuild "All In One.csproj"
-          /t:Publish
-          /p:Configuration=Release
-          /p:Platform=x64
-          /p:AppxBundle=Never
-          /p:AppxPackageSigningEnabled=false
-          /p:SelfContained=true
-          /p:GenerateAppxPackageOnBuild=true
+        shell: pwsh
+        run: |
+          msbuild "All In One.csproj" `
+            /t:Publish `
+            /p:Configuration=Release `
+            /p:Platform=x64 `
+            /p:AppxBundle=Never `
+            /p:AppxPackageSigningEnabled=false `
+            /p:SelfContained=true `
+            /p:GenerateAppxPackageOnBuild=true `
+            /p:EnableWindowsTargeting=true
 
       - name: Find MSIX files
         run: Get-ChildItem -Path . -Filter *.msix -Recurse
