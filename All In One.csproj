@@ -9,20 +9,6 @@
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
-		<TargetPlatformMinVersion>10.0.22621.0</TargetPlatformMinVersion>
-		<UseWinUI>true</UseWinUI>
-		<WinUISDKReferences>false</WinUISDKReferences>
-		<EnableMsixTooling>true</EnableMsixTooling>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="!$([MSBuild]::IsOSPlatform('Windows'))">
-		<TargetFramework>net10.0-windows</TargetFramework>
-		<UseWinUI>false</UseWinUI>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<Content Include="Assets\AppIcon.ico">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
