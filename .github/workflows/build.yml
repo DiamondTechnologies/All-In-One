@@ -36,17 +36,17 @@ jobs:
           /t:Publish
           /p:Configuration=Release
           /p:Platform=x64
-          /p:AppxPackageDir="${{ runner.temp }}\AppxPackages\"
           /p:AppxBundle=Never
           /p:AppxPackageSigningEnabled=false
           /p:SelfContained=true
+          /p:GenerateAppxPackageOnBuild=true
 
       - name: Find MSIX files
-        run: Get-ChildItem -Path ${{ runner.temp }} -Filter *.msix -Recurse
+        run: Get-ChildItem -Path . -Filter *.msix -Recurse
 
       - name: Upload Unsigned MSIX Artifact
         uses: actions/upload-artifact@v4
         with:
           name: unsigned-msix-x64
-          path: ${{ runner.temp }}/AppxPackages/**/*.msix
+          path: '**/*.msix'
           if-no-files-found: error
