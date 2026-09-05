@@ -25,4 +25,4 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Component Detection and Submission
-        uses: actions/component-detection-dependency-submission-action@v1
+        uses: actions/component-detection-dependency-submission-action@98beaea5a1227f3db476e4c9ca959a0cacd7ac4f
