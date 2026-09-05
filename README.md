@@ -44,6 +44,8 @@ The result is a single document containing the relevant project files.
 
 ### 1. Download & Install
 
+> ℹ️ The SignPath Foundation team is reviewing this project, so there are no ready-to-use binaries yet. Stay tuned!
+
 Download the latest MSIX package from the **Releases** section.
 
 Open the file and click **Install**.
