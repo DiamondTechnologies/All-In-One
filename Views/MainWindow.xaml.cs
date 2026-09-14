@@ -39,6 +39,9 @@ namespace All_In_One
 
             InitializeComponent();
 
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
+
             nint hwnd = WindowNative.GetWindowHandle(this);
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);

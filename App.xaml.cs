@@ -34,9 +34,9 @@ namespace All_In_One
             }
             try
             {
-                AppActivationArguments activationArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+                AppActivationArguments activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
 
-                if (activationArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.File)
+                if (activationArgs.Kind == ExtendedActivationKind.File)
                 {
                     if (activationArgs.Data is Windows.ApplicationModel.Activation.FileActivatedEventArgs fileArgs)
                     {

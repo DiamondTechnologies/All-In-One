@@ -13,175 +13,351 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid AllowDrop="True"
-          DragOver="Grid_DragOver"
-          Drop="Grid_Drop"
-          Background="Transparent">
+    <Grid>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <Grid x:Name="LeftPanelGrid"
-              Grid.Column="0"
-              Padding="20"
-              AllowDrop="True"
-              DragOver="Grid_DragOver"
-              Drop="Grid_Drop">
+        <TitleBar
+            x:Name="AppTitleBar"
+            Grid.Row="0"
+            Title="All In One">
 
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="LoadingStates">
+            <TitleBar.IconSource>
+                <ImageIconSource
+                    ImageSource="ms-appx:///Assets/AppIcon.ico" />
+            </TitleBar.IconSource>
 
-                    <VisualState x:Name="NormalState">
-                        <Storyboard>
-                            <DoubleAnimation
-                                Storyboard.TargetName="MainContentPanel"
-                                Storyboard.TargetProperty="Opacity"
-                                To="1"
-                                Duration="0:0:0.25" />
+        </TitleBar>
 
-                            <DoubleAnimation
-                                Storyboard.TargetName="LoadingPanel"
-                                Storyboard.TargetProperty="Opacity"
-                                To="0"
-                                Duration="0:0:0.25" />
-                        </Storyboard>
-                    </VisualState>
+        <Grid
+            Grid.Row="1"
+            AllowDrop="True"
+            DragOver="Grid_DragOver"
+            Drop="Grid_Drop"
+            Background="Transparent">
 
-                    <VisualState x:Name="LoadingState">
-                        <Storyboard>
-                            <DoubleAnimation
-                                Storyboard.TargetName="MainContentPanel"
-                                Storyboard.TargetProperty="Opacity"
-                                To="0"
-                                Duration="0:0:0.25" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
 
-                            <DoubleAnimation
-                                Storyboard.TargetName="LoadingPanel"
-                                Storyboard.TargetProperty="Opacity"
-                                To="1"
-                                Duration="0:0:0.25" />
-                        </Storyboard>
-                    </VisualState>
+            <!-- ===================================================== -->
+            <!-- LEFT PANEL                                            -->
+            <!-- ===================================================== -->
 
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
+            <Grid
+                x:Name="LeftPanelGrid"
+                Grid.Column="0"
+                Padding="20"
+                AllowDrop="True"
+                DragOver="Grid_DragOver"
+                Drop="Grid_Drop">
 
-            <Grid x:Name="MainContentPanel">
+                <VisualStateManager.VisualStateGroups>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                    <VisualStateGroup x:Name="LoadingStates">
 
-                <StackPanel x:Name="FilterPanel"
-                            Grid.Row="0"
-                            Margin="0,0,0,15"
-                            Spacing="10"
-                            Visibility="Collapsed">
+                        <VisualState x:Name="NormalState">
 
-                    <Grid>
+                            <Storyboard>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MainContentPanel"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="1"
+                                    Duration="0:0:0.25" />
 
-                        <TextBox x:Name="SearchBox"
-                                 x:Uid="SearchBox"
-                                 TextChanged="SearchBox_TextChanged"
-                                 Margin="0,0,10,0" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="LoadingPanel"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0"
+                                    Duration="0:0:0.25" />
 
-                        <Button x:Name="ExtensionFilterButton"
+                            </Storyboard>
+
+                        </VisualState>
+
+                        <VisualState x:Name="LoadingState">
+
+                            <Storyboard>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MainContentPanel"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0"
+                                    Duration="0:0:0.25" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="LoadingPanel"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="1"
+                                    Duration="0:0:0.25" />
+
+                            </Storyboard>
+
+                        </VisualState>
+
+                    </VisualStateGroup>
+
+                </VisualStateManager.VisualStateGroups>
+
+                <Grid x:Name="MainContentPanel">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- FILTER PANEL -->
+
+                    <StackPanel
+                        x:Name="FilterPanel"
+                        Grid.Row="0"
+                        Margin="0,0,0,15"
+                        Spacing="10"
+                        Visibility="Collapsed">
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox
+                                x:Name="SearchBox"
+                                x:Uid="SearchBox"
+                                Margin="0,0,10,0"
+                                TextChanged="SearchBox_TextChanged" />
+
+                            <Button
+                                x:Name="ExtensionFilterButton"
                                 x:Uid="ExtensionFilterButton"
                                 Grid.Column="1"
                                 Click="ExtensionFilterButton_Click"
                                 Style="{StaticResource DefaultButtonStyle}">
 
-                            <FontIcon Glyph="&#xE71C;" />
-
-                        </Button>
-
-                    </Grid>
-
-                    <Grid>
-
-                        <StackPanel Orientation="Horizontal"
-                                    Spacing="8"
-                                    HorizontalAlignment="Left">
-
-                            <Button Click="SelectAll_Click"
-                                    Style="{StaticResource DefaultButtonStyle}">
-
-                                <StackPanel Orientation="Horizontal"
-                                            Spacing="6">
-
-                                    <FontIcon Glyph="&#xE8B3;" />
-
-                                    <TextBlock x:Uid="SelectAllButtonText" />
-
-                                </StackPanel>
+                                <FontIcon Glyph="&#xE71C;" />
 
                             </Button>
 
-                            <Button Click="DeselectAll_Click"
+                        </Grid>
+
+                        <Grid>
+
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal"
+                                Spacing="8">
+
+                                <Button
+                                    Click="SelectAll_Click"
                                     Style="{StaticResource DefaultButtonStyle}">
 
-                                <StackPanel Orientation="Horizontal"
-                                            Spacing="6">
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="6">
 
-                                    <FontIcon Glyph="&#xE8E6;" />
+                                        <FontIcon Glyph="&#xE8B3;" />
 
-                                    <TextBlock x:Uid="DeselectAllButtonText" />
+                                        <TextBlock
+                                            x:Uid="SelectAllButtonText" />
 
-                                </StackPanel>
+                                    </StackPanel>
 
-                            </Button>
+                                </Button>
 
-                            <Button Click="ResetSelection_Click"
+                                <Button
+                                    Click="DeselectAll_Click"
                                     Style="{StaticResource DefaultButtonStyle}">
 
-                                <StackPanel Orientation="Horizontal"
-                                            Spacing="6">
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="6">
 
-                                    <FontIcon Glyph="&#xE711;" />
+                                        <FontIcon Glyph="&#xE8E6;" />
 
-                                    <TextBlock x:Uid="ResetSelectionButtonText" />
+                                        <TextBlock
+                                            x:Uid="DeselectAllButtonText" />
 
-                                </StackPanel>
+                                    </StackPanel>
 
-                            </Button>
+                                </Button>
 
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal"
-                                    Spacing="8"
-                                    HorizontalAlignment="Right">
-
-                            <Button Click="AddFile_Click"
+                                <Button
+                                    Click="ResetSelection_Click"
                                     Style="{StaticResource DefaultButtonStyle}">
 
-                                <StackPanel Orientation="Horizontal"
-                                            Spacing="6">
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="6">
+
+                                        <FontIcon Glyph="&#xE711;" />
+
+                                        <TextBlock
+                                            x:Uid="ResetSelectionButtonText" />
+
+                                    </StackPanel>
+
+                                </Button>
+
+                            </StackPanel>
+
+                            <StackPanel
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal"
+                                Spacing="8">
+
+                                <Button
+                                    Click="AddFile_Click"
+                                    Style="{StaticResource DefaultButtonStyle}">
+
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="6">
+
+                                        <FontIcon Glyph="&#xE8A5;" />
+
+                                        <TextBlock
+                                            x:Uid="AddFileButtonText" />
+
+                                    </StackPanel>
+
+                                </Button>
+
+                                <Button
+                                    Click="AddFolder_Click"
+                                    Style="{StaticResource DefaultButtonStyle}">
+
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="6">
+
+                                        <FontIcon Glyph="&#xE8B7;" />
+
+                                        <TextBlock
+                                            x:Uid="AddFolderButtonText" />
+
+                                    </StackPanel>
+
+                                </Button>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                    <!-- FILE TREE -->
+
+                    <TreeView
+                        x:Name="FileTree"
+                        Grid.Row="1"
+                        SelectionMode="None"
+                        Visibility="Collapsed">
+
+                        <TreeView.ItemTemplate>
+
+                            <DataTemplate
+                                x:DataType="models:FileNode">
+
+                                <TreeViewItem
+                                    ItemsSource="{x:Bind Children, Mode=OneWay}"
+                                    IsExpanded="{x:Bind IsExpanded, Mode=TwoWay}">
+
+                                    <StackPanel
+                                        Margin="0,4"
+                                        Orientation="Horizontal"
+                                        Spacing="8">
+
+                                        <CheckBox
+                                            Tag="{x:Bind}"
+                                            IsChecked="{x:Bind IsSelected, Mode=OneWay}"
+                                            IsThreeState="{x:Bind IsFolder, Mode=OneWay}"
+                                            MinWidth="0"
+                                            Click="FileNodeCheckBox_Click" />
+
+                                        <FontIcon
+                                            FontSize="16"
+                                            Foreground="{ThemeResource SystemAccentColor}"
+                                            Glyph="{x:Bind IconGlyph}" />
+
+                                        <TextBlock
+                                            Text="{x:Bind Name}"
+                                            VerticalAlignment="Center" />
+
+                                    </StackPanel>
+
+                                </TreeViewItem>
+
+                            </DataTemplate>
+
+                        </TreeView.ItemTemplate>
+
+                    </TreeView>
+
+                    <!-- EMPTY STATE -->
+
+                    <StackPanel
+                        x:Name="EmptyStatePanel"
+                        Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Spacing="15">
+
+                        <FontIcon
+                            FontSize="32"
+                            Foreground="{ThemeResource SystemAccentColor}"
+                            Glyph="&#xE8A5;" />
+
+                        <TextBlock
+                            x:Uid="EmptyStateText"
+                            FontSize="18"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            HorizontalAlignment="Center" />
+
+                        <StackPanel
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="12">
+
+                            <Button
+                                Width="170"
+                                Click="AddFile_Click"
+                                Style="{StaticResource DefaultButtonStyle}">
+
+                                <StackPanel
+                                    HorizontalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="6">
 
                                     <FontIcon Glyph="&#xE8A5;" />
 
-                                    <TextBlock x:Uid="AddFileButtonText" />
+                                    <TextBlock
+                                        x:Uid="ChooseFileButtonText" />
 
                                 </StackPanel>
 
                             </Button>
 
-                            <Button Click="AddFolder_Click"
-                                    Style="{StaticResource DefaultButtonStyle}">
+                            <Button
+                                Width="170"
+                                Click="AddFolder_Click"
+                                Style="{StaticResource AccentButtonStyle}">
 
-                                <StackPanel Orientation="Horizontal"
-                                            Spacing="6">
+                                <StackPanel
+                                    HorizontalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="6">
 
                                     <FontIcon Glyph="&#xE8B7;" />
 
-                                    <TextBlock x:Uid="AddFolderButtonText" />
+                                    <TextBlock
+                                        x:Uid="ChooseFolderButtonText" />
 
                                 </StackPanel>
 
@@ -189,227 +365,138 @@
 
                         </StackPanel>
 
-                    </Grid>
+                    </StackPanel>
 
-                </StackPanel>
+                </Grid>
 
-                <TreeView x:Name="FileTree"
-          Grid.Row="1"
-          Visibility="Collapsed"
-          SelectionMode="None">
+                <!-- LOADING -->
 
-                    <TreeView.ItemTemplate>
-                        <DataTemplate x:DataType="models:FileNode">
+                <StackPanel
+                    x:Name="LoadingPanel"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    IsHitTestVisible="False"
+                    Opacity="0"
+                    Spacing="16">
 
-                            <TreeViewItem
-                ItemsSource="{x:Bind Children, Mode=OneWay}"
-                IsExpanded="{x:Bind IsExpanded, Mode=TwoWay}">
+                    <ProgressRing
+                        x:Name="LoadingRing"
+                        Width="48"
+                        Height="48"
+                        IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
 
-                                <StackPanel
-                    Orientation="Horizontal"
-                    Spacing="8"
-                    Margin="0,4">
-
-                                    <CheckBox
-                        Tag="{x:Bind}"
-                        IsChecked="{x:Bind IsSelected, Mode=OneWay}"
-                        IsThreeState="{x:Bind IsFolder, Mode=OneWay}"
-                        Click="FileNodeCheckBox_Click"
-                        MinWidth="0" />
-
-                                    <FontIcon
-                        Glyph="{x:Bind IconGlyph}"
-                        FontSize="16"
-                        Foreground="{ThemeResource SystemAccentColor}" />
-
-                                    <TextBlock
-                        Text="{x:Bind Name}"
-                        VerticalAlignment="Center" />
-
-                                </StackPanel>
-
-                            </TreeViewItem>
-
-                        </DataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-
-                <StackPanel x:Name="EmptyStatePanel"
-                            Grid.Row="1"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            Spacing="15">
-
-                    <FontIcon
-                        Glyph="&#xE8A5;"
-                        FontSize="32"
-                        Foreground="{ThemeResource SystemAccentColor}" />
+                    <ProgressBar
+                        x:Name="MergeProgressBar"
+                        Width="240"
+                        Maximum="100"
+                        Minimum="0"
+                        Value="{x:Bind ViewModel.ProgressValue, Mode=OneWay}"
+                        Visibility="Collapsed" />
 
                     <TextBlock
-                        x:Uid="EmptyStateText"
-                        FontSize="18"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                        HorizontalAlignment="Center" />
-
-                    <StackPanel Orientation="Horizontal"
-                                Spacing="12"
-                                HorizontalAlignment="Center"
-                                Margin="0,5,0,0">
-
-                        <Button Click="AddFile_Click"
-                                Width="170"
-                                Style="{StaticResource DefaultButtonStyle}">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Spacing="6"
-                                        HorizontalAlignment="Center">
-
-                                <FontIcon Glyph="&#xE8A5;" />
-
-                                <TextBlock x:Uid="ChooseFileButtonText" />
-
-                            </StackPanel>
-
-                        </Button>
-
-                        <Button Click="AddFolder_Click"
-                                Width="170"
-                                Style="{StaticResource AccentButtonStyle}">
-
-                            <StackPanel Orientation="Horizontal"
-                                        Spacing="6"
-                                        HorizontalAlignment="Center">
-
-                                <FontIcon Glyph="&#xE8B7;" />
-
-                                <TextBlock x:Uid="ChooseFolderButtonText" />
-
-                            </StackPanel>
-
-                        </Button>
-
-                    </StackPanel>
+                        x:Name="LoadingStatusText"
+                        HorizontalAlignment="Center"
+                        FontSize="14"
+                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                        Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" />
 
                 </StackPanel>
 
             </Grid>
 
-            <StackPanel x:Name="LoadingPanel"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Spacing="16"
-                        Opacity="0"
-                        IsHitTestVisible="False">
+            <!-- ===================================================== -->
+            <!-- RIGHT PANEL                                           -->
+            <!-- ===================================================== -->
 
-                <ProgressRing
-                    x:Name="LoadingRing"
-                    Width="48"
-                    Height="48"
-                    IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
+            <Grid
+                Grid.Column="1"
+                Padding="20"
+                AllowDrop="True"
+                Background="{ThemeResource LayerFillColorDefaultBrush}"
+                DragOver="Grid_DragOver"
+                Drop="Grid_Drop">
 
-                <ProgressBar
-                    x:Name="MergeProgressBar"
-                    Width="240"
-                    Minimum="0"
-                    Maximum="100"
-                    Value="{x:Bind ViewModel.ProgressValue, Mode=OneWay}"
-                    Visibility="Collapsed" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-                <TextBlock
-                    x:Name="LoadingStatusText"
-                    Text="{x:Bind ViewModel.StatusText, Mode=OneWay}"
-                    FontSize="14"
-                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    HorizontalAlignment="Center" />
-
-            </StackPanel>
-
-        </Grid>
-
-        <Grid Grid.Column="1"
-              Padding="20"
-              Background="{ThemeResource LayerFillColorDefaultBrush}"
-              AllowDrop="True"
-              DragOver="Grid_DragOver"
-              Drop="Grid_Drop">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Row="0"
-                        HorizontalAlignment="Center"
-                        Margin="0,0,0,20"
-                        Spacing="10">
-
-                <TextBlock
-                    x:Uid="CounterTitleTextBlock"
-                    FontSize="16"
+                <StackPanel
+                    Grid.Row="0"
                     HorizontalAlignment="Center"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-
-                <TextBlock
-                    x:Name="CounterTextBlock"
-                    Text="{x:Bind ViewModel.CounterText, Mode=OneWay}"
-                    FontSize="36"
-                    FontWeight="SemiBold"
-                    HorizontalAlignment="Center" />
-
-            </StackPanel>
-
-            <ScrollViewer Grid.Row="1"
-                          VerticalScrollBarVisibility="Auto">
-
-                <StackPanel Spacing="12">
+                    Margin="0,0,0,20"
+                    Spacing="10">
 
                     <TextBlock
-                        x:Uid="ProcessingSettingsText"
+                        x:Uid="CounterTitleTextBlock"
+                        FontSize="16"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center" />
+
+                    <TextBlock
+                        x:Name="CounterTextBlock"
+                        Text="{x:Bind ViewModel.CounterText, Mode=OneWay}"
+                        FontSize="36"
                         FontWeight="SemiBold"
-                        Margin="0,0,0,4" />
-
-                    <CheckBox
-                        x:Name="MaskDataCheckBox"
-                        x:Uid="MaskDataCheckBox"
-                        IsChecked="True" />
-
-                    <CheckBox
-                        x:Name="WarnKeysCheckBox"
-                        x:Uid="WarnKeysCheckBox"
-                        IsChecked="True" />
-
-                    <StackPanel Spacing="8">
-
-                        <CheckBox
-                            x:Name="RemoveCommentsCheckBox"
-                            x:Uid="RemoveCommentsCheckBox"
-                            IsThreeState="True"
-                            Click="RemoveCommentsCheckBox_Click" />
-
-                        <Button
-                            x:Name="SelectCommentTypesButton"
-                            x:Uid="SelectCommentTypesButton"
-                            Click="SelectCommentTypes_Click"
-                            IsEnabled="False"
-                            Margin="28,0,0,0" />
-
-                    </StackPanel>
+                        HorizontalAlignment="Center" />
 
                 </StackPanel>
 
-            </ScrollViewer>
+                <ScrollViewer
+                    Grid.Row="1"
+                    VerticalScrollBarVisibility="Auto">
 
-            <Button
-                Grid.Row="2"
-                x:Uid="MergeButton"
-                Click="MergeButton_Click"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Width="160"
-                Height="50"
-                FontSize="16"
-                Style="{StaticResource AccentButtonStyle}" />
+                    <StackPanel Spacing="12">
+
+                        <TextBlock
+                            x:Uid="ProcessingSettingsText"
+                            FontWeight="SemiBold"
+                            Margin="0,0,0,4" />
+
+                        <CheckBox
+                            x:Name="MaskDataCheckBox"
+                            x:Uid="MaskDataCheckBox"
+                            IsChecked="True" />
+
+                        <CheckBox
+                            x:Name="WarnKeysCheckBox"
+                            x:Uid="WarnKeysCheckBox"
+                            IsChecked="True" />
+
+                        <StackPanel Spacing="8">
+
+                            <CheckBox
+                                x:Name="RemoveCommentsCheckBox"
+                                x:Uid="RemoveCommentsCheckBox"
+                                IsThreeState="True"
+                                Click="RemoveCommentsCheckBox_Click" />
+
+                            <Button
+                                x:Name="SelectCommentTypesButton"
+                                x:Uid="SelectCommentTypesButton"
+                                Click="SelectCommentTypes_Click"
+                                IsEnabled="False"
+                                Margin="28,0,0,0" />
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+                <Button
+                    Grid.Row="2"
+                    x:Uid="MergeButton"
+                    Width="160"
+                    Height="50"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Click="MergeButton_Click"
+                    Style="{StaticResource AccentButtonStyle}" />
+
+            </Grid>
 
         </Grid>
 
