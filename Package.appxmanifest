@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4" xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5" xmlns:desktop7="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7" xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap uap2 desktop4 desktop5 desktop7 com rescap">
-	<Identity Name="DiamondTechnologies.AllInOnePrepareCodeforAI" Publisher="CN=8AEAB7FE-A2EB-4C6B-AEAD-EB80C0786F0F" Version="1.0.0.0" />
+	<Identity Name="DiamondTechnologies.AllInOnePrepareCodeforLLM" Publisher="CN=Diamond Technologies" Version="1.0.0.0" />
 	<Properties>
-		<DisplayName>All In One: Prepare Code for AI</DisplayName>
+		<DisplayName>All In One: Prepare Code for LLM</DisplayName>
 		<PublisherDisplayName>Diamond Technologies</PublisherDisplayName>
 		<Logo>Assets\PackageLogo.png</Logo>
 	</Properties>
@@ -15,7 +15,7 @@
 	</Resources>
 	<Applications>
 		<Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
-			<uap:VisualElements DisplayName="All In One" Description="Prepare and clean code for AI" BackgroundColor="transparent" Square150x150Logo="Assets\MediumTile.png" Square44x44Logo="Assets\AppIcon.png">
+			<uap:VisualElements DisplayName="All In One" Description="Prepare and clean code for LLM" BackgroundColor="transparent" Square150x150Logo="Assets\MediumTile.png" Square44x44Logo="Assets\AppIcon.png">
 				<uap:DefaultTile Square71x71Logo="Assets\SmallTile.png" Wide310x150Logo="Assets\WideTile.png" Square310x310Logo="Assets\LargeTile.png"/>
 				<uap:SplashScreen BackgroundColor="transparent" Image="Assets\SplashScreen.png"/>
 			</uap:VisualElements>
