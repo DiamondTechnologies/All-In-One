@@ -14,8 +14,7 @@
 		<WinUISDKReferences>false</WinUISDKReferences>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<WindowsPackageType>MSIX</WindowsPackageType>
-		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
-		<AppxLogTelemetryFromSideloadingScript>false</AppxLogTelemetryFromSideloadingScript>
+		<ProjectPriIndexName>All_In_One</ProjectPriIndexName>
 	</PropertyGroup>
 
 	<ItemGroup>
