@@ -44,10 +44,6 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <!-- ===================================================== -->
-            <!-- LEFT PANEL                                            -->
-            <!-- ===================================================== -->
-
             <Grid
                 x:Name="LeftPanelGrid"
                 Grid.Column="0"
@@ -110,8 +106,6 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
-                    <!-- FILTER PANEL -->
 
                     <StackPanel
                         x:Name="FilterPanel"
@@ -251,8 +245,6 @@
 
                     </StackPanel>
 
-                    <!-- FILE TREE -->
-
                     <TreeView
                         x:Name="FileTree"
                         Grid.Row="1"
@@ -282,7 +274,7 @@
 
                                         <FontIcon
                                             FontSize="16"
-                                            Foreground="{ThemeResource SystemAccentColor}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                             Glyph="{x:Bind IconGlyph}" />
 
                                         <TextBlock
@@ -298,8 +290,6 @@
                         </TreeView.ItemTemplate>
 
                     </TreeView>
-
-                    <!-- EMPTY STATE -->
 
                     <StackPanel
                         x:Name="EmptyStatePanel"
@@ -369,8 +359,6 @@
 
                 </Grid>
 
-                <!-- LOADING -->
-
                 <StackPanel
                     x:Name="LoadingPanel"
                     HorizontalAlignment="Center"
@@ -403,10 +391,6 @@
                 </StackPanel>
 
             </Grid>
-
-            <!-- ===================================================== -->
-            <!-- RIGHT PANEL                                           -->
-            <!-- ===================================================== -->
 
             <Grid
                 Grid.Column="1"
