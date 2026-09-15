@@ -257,4 +257,10 @@
   <data name="FileFilter.NoExtension" xml:space="preserve">
     <value>[без расширения]</value>
   </data>
+  <data name="FilterDialog.Title" xml:space="preserve">
+    <value>Фильтровать</value>
+  </data>
+  <data name="ResetFiltersButton.Text" xml:space="preserve">
+    <value>Сбросить фильтр</value>
+  </data>
 </root>

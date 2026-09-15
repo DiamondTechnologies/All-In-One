@@ -257,4 +257,10 @@ Fallback method error: {1}</value>
   <data name="FileFilter.NoExtension" xml:space="preserve">
     <value>[no extension]</value>
   </data>
+  <data name="FilterDialog.Title" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ResetFiltersButton.Text" xml:space="preserve">
+    <value>Reset filter</value>
+  </data>
 </root>

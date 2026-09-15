@@ -308,10 +308,10 @@
                         VerticalAlignment="Center"
                         Spacing="15">
 
-                        <FontIcon
-                            FontSize="32"
-                            Foreground="{ThemeResource SystemAccentColor}"
-                            Glyph="&#xE8A5;" />
+                        <TextBlock
+                            FontSize="30"
+                            Text="🤨"
+                            HorizontalAlignment="Center" />
 
                         <TextBlock
                             x:Uid="EmptyStateText"

@@ -14,8 +14,7 @@
 		<WinUISDKReferences>false</WinUISDKReferences>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<WindowsPackageType>MSIX</WindowsPackageType>
-		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
-		<AppxLogTelemetryFromSideloadingScript>false</AppxLogTelemetryFromSideloadingScript>
+		<ProjectPriIndexName>All_In_One</ProjectPriIndexName>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -67,7 +66,6 @@
 		<DefaultLanguage>en-US</DefaultLanguage>
 		<AppxBundlePlatforms>x64</AppxBundlePlatforms>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<PackageCertificateThumbprint>8D27D891C30FCB3D5201B76F7FF0DCB8472E1A26</PackageCertificateThumbprint>
 	</PropertyGroup>
 
 	<ItemGroup>
