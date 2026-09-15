@@ -14,7 +14,7 @@
 		<WinUISDKReferences>false</WinUISDKReferences>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<WindowsPackageType>MSIX</WindowsPackageType>
-		<ProjectPriIndexName>All_In_One</ProjectPriIndexName>
+		<ProjectPriIndexName>All_In_One</ProjectPriIndexName>		
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -61,11 +61,13 @@
 		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
 		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
 		<GenerateTestArtifacts>False</GenerateTestArtifacts>
-		<AppxBundle>Always</AppxBundle>
+		<AppxBundle>Never</AppxBundle>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 		<DefaultLanguage>en-US</DefaultLanguage>
 		<AppxBundlePlatforms>x64</AppxBundlePlatforms>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<AppxPackageIncludeMatchResources>true</AppxPackageIncludeMatchResources>
+		<PackageCertificateThumbprint>52399C85062FB07F8B37AC3B63FA6FEC0B81F226</PackageCertificateThumbprint>
 	</PropertyGroup>
 
 	<ItemGroup>
