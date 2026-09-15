@@ -44,11 +44,9 @@ The result is a single document containing the relevant project files.
 
 ### 1. Download & Install
 
-> ℹ️ The SignPath Foundation team is reviewing this project, so there are no ready-to-use binaries yet. Stay tuned!
+Download the latest ZIP archive from the **Releases** section.
 
-Download the latest MSIX package from the **Releases** section.
-
-Open the file and click **Install**.
+Unzip the file and launch Install.cmd as admininstrator.
 
 ### 2. Launch
 
@@ -107,12 +105,12 @@ The generated content only leaves your computer when you choose to copy it or sh
 
 ## 🖥️ Requirements
 
-* Windows 11
+* Windows 11 x64
 * Free local storage space: 500 MB minimum, 1 GB recommended
 
 ## Acknowledgements
 
-* SignPath Foundation
+* FSF
 * Microsoft Corporation
 
 ## License
